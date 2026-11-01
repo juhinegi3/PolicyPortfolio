@@ -1,4 +1,4 @@
-/* Builds the Publicly Speaking list and the reading page from the plain text files.
+/* Builds the Opinions list and the reading page from the plain text files.
    To change the writing, edit the .txt files. Nothing in this file needs to change. */
 (function () {
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -68,7 +68,7 @@
     mount.appendChild(el('p', 'notice', msg));
   }
 
-  /* ---------- Publicly Speaking list ---------- */
+  /* ---------- Opinions list ---------- */
   function renderList(mount) {
     load('pieces.txt').then(function (raw) {
       var slugs = raw.split('\n').map(function (l) { return l.trim(); }).filter(function (l) { return l && l.charAt(0) !== '#'; });
@@ -104,14 +104,14 @@
   /* ---------- Reading page ---------- */
   function renderPiece(mount) {
     var slug = new URLSearchParams(location.search).get('p') || '';
-    if (!/^[a-z0-9-]+$/i.test(slug)) return showNotice(mount, 'That piece could not be found. Go back to Publicly Speaking.');
+    if (!/^[a-z0-9-]+$/i.test(slug)) return showNotice(mount, 'That piece could not be found. Go back to the list of opinions.');
     load(slug + '.txt').then(function (raw) {
       var p = parse(raw);
       var title = p.meta.title || slug;
       document.title = title + ' | Juhi';
       mount.textContent = '';
 
-      var back = el('a', 'back', '← Publicly Speaking');
+      var back = el('a', 'back', '← Opinions');
       back.href = 'opinions.html';
       mount.appendChild(back);
       mount.appendChild(el('p', 'byline', prettyDate(p.meta.date) + '  ·  ' + minutes(p.blocks) + ' min read'));
@@ -127,7 +127,7 @@
       mount.appendChild(body);
 
       var foot = el('div', 'read-foot');
-      var all = el('a', null, '← All pieces');
+      var all = el('a', null, '← All opinions');
       all.href = 'opinions.html';
       foot.appendChild(all);
       if (/^https?:\/\//i.test(p.meta.link || '')) {
@@ -139,7 +139,7 @@
       }
       mount.appendChild(foot);
     }).catch(function () {
-      showNotice(mount, 'That piece could not be loaded. Go back to Publicly Speaking.');
+      showNotice(mount, 'That piece could not be loaded. Go back to the list of opinions.');
     });
   }
 

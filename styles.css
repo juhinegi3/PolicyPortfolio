@@ -94,7 +94,7 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 /* ---------- Collage (right side) ---------- */
 /* Occupies mockup x 700 to 1560, y 100 to 740 */
 /* The whole set (photo, circle, square, grid and dotted outline) is moved to the right as one piece.
-   To move it further, raise 18.6% (it is a share of the set's own width, so 18.6% is about 160px of the mockup). */
+   To move it further, raise 7% (it is a share of the set's own width, so 7% is about 60px of the mockup). */
 .collage {
   --cx: 700; --cy: 100; --cw: 860; --ch: 640;
   position: absolute;
@@ -103,7 +103,7 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
   width: calc(var(--cw) / 1586 * 100%);
   aspect-ratio: 860 / 640;
   container-type: inline-size;
-  translate: 18.6% 0;
+  translate: 7% 0;
 }
 .c {
   position: absolute;

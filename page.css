@@ -1,4 +1,4 @@
-/* Styles for the inner pages (Publicly Speaking list and the reading page).
+/* Styles for the inner pages (Opinions list and the reading page).
    Colours, fonts and the paper grain come from styles.css, which loads first. */
 
 .page {
@@ -45,12 +45,10 @@
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(52px, 10.5vw, 120px);
+  font-size: clamp(64px, 14vw, 150px);
   line-height: 0.85;
   letter-spacing: -0.015em;
 }
-
-.tagline { margin: 22px 0 0; font-family: var(--display); font-style: italic; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.2; letter-spacing: 0.01em; }
 
 .rows {
   list-style: none;
