@@ -138,3 +138,8 @@ body[data-view="piece"] .disc { width: clamp(90px, 9vw, 130px); top: 64px; right
   text-underline-offset: 3px;
 }
 .body a:hover, .standfirst a:hover { text-decoration-color: var(--ink); text-decoration-thickness: 2px; }
+h1, h2, h3 {
+  letter-spacing: 0.01em !important;
+  line-height: 1.18 !important;
+  word-spacing: 0.06em !important;
+}
