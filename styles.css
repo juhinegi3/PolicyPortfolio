@@ -144,16 +144,34 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 @media (prefers-reduced-motion: reduce) {
   .paths a .arrow { transition: none; }
 }
-/* Move the hero image group further to the right */
+/* 4, 5, 6: move the whole image set (photo, circle, square, dotted line, grid) right */
 *:has(> img[src$="photo.png"]) {
-  translate: 4.5rem 0;
+  translate: clamp(3rem, 6vw, 8rem) 0;
 }
 
-/* More space between "(in small print)" and the intro line */
+/* stops the page getting a sideways scrollbar after the shift */
+html, body {
+  overflow-x: clip;
+}
+
+/* 2: "(in small print)" one step larger */
 h1 + * {
-  margin-bottom: 2.25rem !important;
+  scale: 1.06;
+  transform-origin: left center;
 }
 
+/* 3: more space between "(in small print)" and "Hi, I'm Juhi", which moves the intro down */
+h1 + * + * {
+  margin-top: 3.5rem !important;
+}
+
+/* 1: remove the plus mark at the top left (keeps the vertical line) */
+[class*="cross" i]:first-of-type,
+[class*="plus" i]:first-of-type {
+  display: none !important;
+}
+
+/* phones and narrow windows: no sideways shift */
 @media (max-width: 800px) {
   *:has(> img[src$="photo.png"]) {
     translate: 0 0;
