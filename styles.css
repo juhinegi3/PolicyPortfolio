@@ -144,9 +144,14 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 @media (prefers-reduced-motion: reduce) {
   .paths a .arrow { transition: none; }
 }
-/* Nudge the hero image group to the right */
+/* Move the hero image group further to the right */
 *:has(> img[src$="photo.png"]) {
-  translate: 2rem 0;
+  translate: 4.5rem 0;
+}
+
+/* More space between "(in small print)" and the intro line */
+h1 + * {
+  margin-bottom: 2.25rem !important;
 }
 
 @media (max-width: 800px) {
