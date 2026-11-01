@@ -144,3 +144,13 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 @media (prefers-reduced-motion: reduce) {
   .paths a .arrow { transition: none; }
 }
+/* Nudge the hero image group to the right */
+*:has(> img[src$="photo.png"]) {
+  translate: 2rem 0;
+}
+
+@media (max-width: 800px) {
+  *:has(> img[src$="photo.png"]) {
+    translate: 0 0;
+  }
+}
