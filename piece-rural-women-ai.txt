@@ -1,5 +1,5 @@
 title: What Will It Take for Rural Women in India to Use AI with Confidence?
-date: 2025-12
+date: 2025-12-05
 summary: Teaching AI to rural women depends on time, confidence and room to make mistakes, as much as access to a phone.
 standfirst: India's efforts to expand AI literacy among rural women must account for a less visible barrier to adoption: the time, confidence and freedom required to learn an unfamiliar technology.
 ---
