@@ -1,0 +1,195 @@
+/* Shared styles for every page of the site.
+   The homepage is laid out on a 1586 x 992 grid (the size of the original mockup)
+   and scales as one piece on wide screens. Below 860px everything stacks. */
+
+:root {
+  --paper: #e0e7ec;
+  --ink: #161616;
+  --sage: #cdd7ce;
+  --blush: #e6c1ca;
+  --display: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+  --text: "Newsreader", "Iowan Old Style", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  overflow-x: hidden;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Paper grain over the whole page */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.4  0 0 0 0 0.45  0 0 0 0.12 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
+
+/* ---------- Homepage stage ---------- */
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 1586px;
+  margin: 0 auto;
+  aspect-ratio: 1586 / 992;
+  container-type: inline-size;
+  overflow: clip;
+}
+
+/* Place an element by its pixel position in the mockup (--x, --y) */
+.at { position: absolute; left: calc(var(--x) / 1586 * 100%); top: calc(var(--y) / 992 * 100%); }
+/* Scale a font size from the mockup (--fs) */
+.u { font-size: calc(var(--fs) / 1586 * 100cqw); }
+
+/* Navigation */
+.nav { display: flex; gap: calc(34 / 1586 * 100cqw); align-items: baseline; letter-spacing: 0.03em; white-space: nowrap; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+
+/* Crosshair marks */
+.plus { width: calc(34 / 1586 * 100cqw); height: calc(34 / 1586 * 100cqw); transform: translate(-50%, -50%); }
+.plus::before, .plus::after { content: ""; position: absolute; background: var(--ink); }
+.plus::before { left: 0; right: 0; top: 50%; height: 1px; }
+.plus::after { top: 0; bottom: 0; left: 50%; width: 1px; }
+
+/* Small numbers and the vertical rule on the left */
+.idx { letter-spacing: 0.08em; line-height: 1; }
+.rail { --x: 57; --y: 237; width: 1px; height: calc(656 / 992 * 100%); background: var(--ink); }
+
+/* Headline and intro */
+.headline { z-index: 3; --x: 100; --y: 218; --fs: 172; margin: 0; font-family: var(--display); font-style: italic; font-weight: 400; line-height: 0.8; letter-spacing: -0.015em; }
+.headline span { display: block; }
+.headline span + span { margin-top: -0.02em; }
+.aside { --x: 107; --y: 532; --fs: 37; margin: 0; font-family: var(--display); font-style: italic; line-height: 1.2; letter-spacing: 0.02em; }
+.intro { --x: 105; --y: 600; --fs: 24.5; width: calc(548 / 1586 * 100%); margin: 0; line-height: 1.28; letter-spacing: 0.035em; }
+
+/* The three section links */
+.paths { list-style: none; margin: 0; padding: 0; }
+.paths li { position: absolute; top: calc(808 / 992 * 100%); left: calc(var(--x) / 1586 * 100%); width: calc(var(--w) / 1586 * 100%); }
+.paths .idx { position: absolute; left: calc(-21 / 1586 * 100cqw); top: calc(6 / 1586 * 100cqw); }
+.paths a {
+  display: flex; align-items: baseline; gap: 0.5em;
+  font-size: calc(36 / 1586 * 100cqw); line-height: 1; letter-spacing: 0.02em;
+  padding: 0 0 calc(22 / 1586 * 100cqw) calc(19 / 1586 * 100cqw);
+  border-bottom: 1px solid var(--ink);
+}
+.paths a .arrow { width: 0.62em; height: 0.62em; flex: none; transition: transform 0.25s ease; }
+.paths a:hover .arrow { transform: translate(3px, -3px); }
+
+/* ---------- Collage (right side) ---------- */
+/* Occupies mockup x 700 to 1560, y 100 to 740 */
+.collage {
+  --cx: 700; --cy: 100; --cw: 860; --ch: 640;
+  position: absolute;
+  left: calc(var(--cx) / 1586 * 100%);
+  top: calc(var(--cy) / 992 * 100%);
+  width: calc(var(--cw) / 1586 * 100%);
+  aspect-ratio: 860 / 640;
+  container-type: inline-size;
+}
+.c {
+  position: absolute;
+  left: calc((var(--x) - var(--cx)) / var(--cw) * 100%);
+  top: calc((var(--y) - var(--cy)) / var(--ch) * 100%);
+  width: calc(var(--w) / var(--cw) * 100%);
+  height: calc(var(--h) / var(--ch) * 100%);
+}
+.circle { --x: 819; --y: 107; --w: 316; --h: 316; background: var(--sage); border-radius: 50%; }
+.blush { --x: 771; --y: 348; --w: 209; --h: 202; background: var(--blush); mix-blend-mode: multiply; }
+.grid {
+  --x: 1177; --y: 147; --w: 316; --h: 190;
+  background-image:
+    linear-gradient(to right, rgba(22, 22, 22, 0.42) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 22, 22, 0.42) 1px, transparent 1px);
+  background-size: calc(46 / 860 * 100cqw) calc(46 / 860 * 100cqw);
+  opacity: 0.55;
+  -webkit-mask-image: linear-gradient(135deg, transparent 0%, #000 35%, #000 100%);
+  mask-image: linear-gradient(135deg, transparent 0%, #000 35%, #000 100%);
+}
+.photo { --x: 790; --y: 205; --w: 550; --h: 490; }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-arrow { --x: 1326; --y: 186; --w: 20; --h: 20; }
+.orbit { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.orbit path { fill: none; stroke: var(--ink); stroke-width: 1.1; stroke-dasharray: 5 5; }
+
+/* ---------- Tablets and phones: everything stacks ---------- */
+@media (max-width: 860px) {
+  .stage { aspect-ratio: auto; container-type: normal; display: flex; flex-direction: column; padding-block: 20px 40px; }
+  .at, .paths li { position: static; }
+  .stage > .plus, .stage > .idx, .stage > .rail { display: none; }
+  .u { font-size: var(--m, 18px); }
+  .nav { --m: 16px; order: 1; align-self: flex-end; }
+  .headline { --m: clamp(56px, 17vw, 110px); order: 2; margin-top: 36px; }
+  .aside { --m: 27px; order: 3; margin-top: 20px; }
+  .intro { --m: 18px; order: 4; width: auto; max-width: 34ch; margin-top: 22px; line-height: 1.4; }
+  .collage { order: 5; position: relative; width: 100%; margin-top: 28px; left: auto; top: auto; }
+  .paths { order: 6; display: flex; flex-direction: column; gap: 22px; margin-top: 24px; }
+  .paths li { position: relative; width: auto; top: auto; left: auto; padding-left: 32px; }
+  .paths .idx { left: 0; top: 10px; font-size: 12px; }
+  .paths a { font-size: 28px; padding: 0 0 14px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paths a .arrow { transition: none; }
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Juhi | Big Questions</title>
+  <meta name="description" content="Juhi's portfolio on social impact, public systems and the mechanics of change at scale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="stage">
+    <nav class="at nav u" aria-label="Primary" style="--x:1462;--y:38;--fs:19">
+      <a href="about.html">about</a>
+    </nav>
+
+    <i class="at plus" style="--x:62;--y:129" aria-hidden="true"></i>
+    <i class="at plus" style="--x:1518;--y:730" aria-hidden="true"></i>
+
+    <span class="at idx u" style="--x:49;--y:208;--fs:14" aria-hidden="true">01</span>
+    <i class="at rail" aria-hidden="true"></i>
+    <span class="at idx u" style="--x:49;--y:910;--fs:14" aria-hidden="true">02</span>
+
+    <h1 class="at headline u"><span>Big</span><span>Questions!</span></h1>
+    <p class="at aside u">(in small print)</p>
+    <p class="at intro u">Hi, I’m Juhi! I’m interested in social impact, public systems and the mechanics of change at scale.</p>
+
+    <div class="collage">
+      <div class="c circle"></div>
+      <div class="c grid"></div>
+      <svg class="orbit" viewBox="700 100 860 640" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M769 277 C700 340 705 520 790 630 C880 700 1060 740 1180 728 C1300 715 1380 690 1405 600 C1430 520 1425 450 1400 416 C1385 385 1360 360 1330 350 C1250 300 1150 260 1050 250 C960 215 850 215 769 277 Z"/>
+      </svg>
+      <div class="c photo"><img src="photo.png" alt="A black and white photograph of a city street with a tree, a bus, pedestrians and a signpost to a community centre"></div>
+      <div class="c blush"></div>
+      <svg class="c photo-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 13L13 3M5 3h8v8"/></svg>
+    </div>
+
+    <ul class="paths">
+      <li style="--x:121;--w:277"><span class="idx u" style="--fs:14" aria-hidden="true">01</span><a href="opinions.html">Opinions <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 13L13 3M5 3h8v8"/></svg></a></li>
+      <li style="--x:490;--w:273"><span class="idx u" style="--fs:14" aria-hidden="true">02</span><a href="analyses.html">Analyses <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 13L13 3M5 3h8v8"/></svg></a></li>
+      <li style="--x:856;--w:302"><span class="idx u" style="--fs:14" aria-hidden="true">03</span><a href="dashboards.html">Dashboards <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M3 13L13 3M5 3h8v8"/></svg></a></li>
+    </ul>
+  </main>
+</body>
+</html>
