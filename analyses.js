@@ -171,30 +171,6 @@
     }, s);
   }
 
-  /* ---------- chart 1: increase by kind of work ---------- */
-  function chartKinds(box, data) {
-    var ind = data.byName['India']; if (!ind) return;
-    var W = box.clientWidth || 600, narrow = W < 520;
-    var labelW = narrow ? 118 : 190, pad = 8, rowH = 44, barH = 22, topPad = 6;
-    var rows = KINDS.map(function (k) { return { k: k, v: ind['chg_' + k.key], sh: ind['sh_' + k.key] }; });
-    var maxV = Math.max.apply(null, rows.map(function (r) { return r.v; }));
-    var plotW = W - labelW - 56;
-    var H = topPad + rows.length * rowH + pad;
-    var s = svg('svg', { width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': box.parentNode.getAttribute('aria-label') });
-    var g = svg('g', {}); s.appendChild(g);
-    g.appendChild(svg('line', { x1: labelW, x2: labelW, y1: 0, y2: H - pad, stroke: INK2, 'stroke-width': 1 }));
-    rows.forEach(function (r, i) {
-      var y = topPad + i * rowH, cy = y + rowH / 2;
-      var bw = Math.max(2, r.v / maxV * plotW);
-      var lbl = narrow ? r.k.short : r.k.short;
-      g.appendChild(text(labelW - 12, cy + 5, lbl, { anchor: 'end', size: narrow ? 14 : 16, fill: '#161616' }));
-      g.appendChild(hbar(labelW, cy - barH / 2, bw, barH, NOW));
-      g.appendChild(text(labelW + bw + 8, cy + 5, f1(r.v), { size: 15, fill: '#161616' }));
-      hit(g, labelW, cy - rowH / 2, bw + 40, rowH, [f1(r.v) + ' per 100 rural women', r.k.label, Math.round(r.sh * 100) + '% of the rise']);
-    });
-    box.textContent = ''; box.appendChild(s);
-  }
-
   /* ---------- chart 2: shares against per 100 ---------- */
   function chartShares(box, data) {
     var ind = data.byName['India']; if (!ind) return;
@@ -278,7 +254,7 @@
       { id: 'day', label: 'Daily wage', get: function (m) { return m.chg_day; }, group: 'Change in each kind of work, per 100', signed: true },
       { id: 'sal', label: 'Salaried', get: function (m) { return m.chg_sal; }, group: 'Change in each kind of work, per 100', signed: true }
     ];
-    var state = { key: 'name', dir: 1, q: '' };
+    var state = { key: 'name', dir: 1 };
     var india = data.byName['India'];
     var list = data.order.filter(function (n) { return n !== 'India'; }).map(function (n) { return data.byName[n]; });
 
@@ -315,26 +291,20 @@
     }
     function render() {
       var col = cols.filter(function (c) { return c.id === state.key; })[0];
-      var q = state.q.trim().toLowerCase();
-      var rows = list.filter(function (m) { return !q || m.name.toLowerCase().indexOf(q) !== -1; });
+      var rows = list.slice();
       rows.sort(function (a, b) {
         var x = col.get(a), y = col.get(b);
         if (col.text) return state.dir * String(x).localeCompare(String(y));
         return state.dir * (x - y);
       });
       tbody.textContent = '';
-      if (india && (!q || 'all india'.indexOf(q) !== -1 || 'india'.indexOf(q) !== -1)) tbody.appendChild(row(india, 'total'));
+      if (india) tbody.appendChild(row(india, 'total'));
       rows.forEach(function (m) { tbody.appendChild(row(m)); });
-      if (!tbody.children.length) {
-        var tr = document.createElement('tr'), td = document.createElement('td'); td.colSpan = cols.length; td.className = 'empty'; td.textContent = 'No state matches that search.'; tr.appendChild(td); tbody.appendChild(tr);
-      }
       cols.forEach(function (c) {
         var th = buttons[c.id];
         th.setAttribute('aria-sort', c.id === state.key ? (state.dir > 0 ? 'ascending' : 'descending') : 'none');
       });
     }
-    var input = $('#state-search');
-    if (input) input.addEventListener('input', function () { state.q = input.value; render(); });
     wrap.textContent = ''; wrap.appendChild(table); render();
   }
 
@@ -358,7 +328,7 @@
 
   /* ---------- redraw charts when the width changes ---------- */
   function charts(data) {
-    var defs = [['#chart-kinds .chart-area', chartKinds], ['#chart-shares .chart-area', chartShares], ['#chart-states .chart-area', chartStates]];
+    var defs = [['#chart-shares .chart-area', chartShares], ['#chart-states .chart-area', chartStates]];
     var last = 0;
     function draw() {
       defs.forEach(function (d) { var box = $(d[0]); if (box) d[1](box, data); });
