@@ -46,7 +46,7 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
   margin: 0 auto;
   aspect-ratio: 1586 / 992;
   container-type: inline-size;
-  overflow: clip;
+  overflow: visible; /* lets the grid run off the right edge instead of being cut in a straight line */
 }
 
 /* Place an element by its pixel position in the mockup (--x, --y) */
@@ -57,6 +57,9 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 /* Navigation */
 .nav { display: flex; gap: calc(34 / 1586 * 100cqw); align-items: baseline; letter-spacing: 0.03em; white-space: nowrap; }
 .nav a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+
+/* The small plus mark at the top left is hidden; the other one stays */
+.stage > .plus:first-of-type { display: none; }
 
 /* Crosshair marks */
 .plus { width: calc(34 / 1586 * 100cqw); height: calc(34 / 1586 * 100cqw); transform: translate(-50%, -50%); }
@@ -72,8 +75,8 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 .headline { z-index: 3; --x: 100; --y: 218; --fs: 172; margin: 0; font-family: var(--display); font-style: italic; font-weight: 400; line-height: 0.8; letter-spacing: -0.015em; }
 .headline span { display: block; }
 .headline span + span { margin-top: -0.02em; }
-.aside { --x: 107; --y: 532; --fs: 37; margin: 0; font-family: var(--display); font-style: italic; line-height: 1.2; letter-spacing: 0.02em; }
-.intro { --x: 105; --y: 600; --fs: 24.5; width: calc(548 / 1586 * 100%); margin: 0; line-height: 1.28; letter-spacing: 0.035em; }
+.aside { --x: 107; --y: 532; --fs: 41; margin: 0; font-family: var(--display); font-style: italic; line-height: 1.2; letter-spacing: 0.02em; }
+.intro { --x: 105; --y: 652; --fs: 24.5; width: calc(640 / 1586 * 100%); margin: 0; line-height: 1.28; letter-spacing: 0.035em; }
 
 /* The three section links */
 .paths { list-style: none; margin: 0; padding: 0; }
@@ -81,7 +84,7 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 .paths .idx { position: absolute; left: calc(-21 / 1586 * 100cqw); top: calc(6 / 1586 * 100cqw); }
 .paths a {
   display: flex; align-items: baseline; gap: 0.5em;
-  font-size: calc(36 / 1586 * 100cqw); line-height: 1; letter-spacing: 0.02em;
+  font-size: calc(36 / 1586 * 100cqw); line-height: 1; letter-spacing: 0.02em; white-space: nowrap;
   padding: 0 0 calc(22 / 1586 * 100cqw) calc(19 / 1586 * 100cqw);
   border-bottom: 1px solid var(--ink);
 }
@@ -90,6 +93,8 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 
 /* ---------- Collage (right side) ---------- */
 /* Occupies mockup x 700 to 1560, y 100 to 740 */
+/* The whole set (photo, circle, square, grid and dotted outline) is moved to the right as one piece.
+   To move it further, raise 18.6% (it is a share of the set's own width, so 18.6% is about 160px of the mockup). */
 .collage {
   --cx: 700; --cy: 100; --cw: 860; --ch: 640;
   position: absolute;
@@ -98,6 +103,7 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
   width: calc(var(--cw) / 1586 * 100%);
   aspect-ratio: 860 / 640;
   container-type: inline-size;
+  translate: 18.6% 0;
 }
 .c {
   position: absolute;
@@ -132,9 +138,9 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
   .u { font-size: var(--m, 18px); }
   .nav { --m: 16px; order: 1; align-self: flex-end; }
   .headline { --m: clamp(56px, 17vw, 110px); order: 2; margin-top: 36px; }
-  .aside { --m: 27px; order: 3; margin-top: 20px; }
+  .aside { --m: 29px; order: 3; margin-top: 20px; }
   .intro { --m: 18px; order: 4; width: auto; max-width: 34ch; margin-top: 22px; line-height: 1.4; }
-  .collage { order: 5; position: relative; width: 100%; margin-top: 28px; left: auto; top: auto; }
+  .collage { translate: none; order: 5; position: relative; width: 100%; margin-top: 28px; left: auto; top: auto; }
   .paths { order: 6; display: flex; flex-direction: column; gap: 22px; margin-top: 24px; }
   .paths li { position: relative; width: auto; top: auto; left: auto; padding-left: 32px; }
   .paths .idx { left: 0; top: 10px; font-size: 12px; }
@@ -143,37 +149,4 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 
 @media (prefers-reduced-motion: reduce) {
   .paths a .arrow { transition: none; }
-}
-/* 4, 5, 6: move the whole image set (photo, circle, square, dotted line, grid) right */
-*:has(> img[src$="photo.png"]) {
-  translate: clamp(3rem, 6vw, 8rem) 0;
-}
-
-/* stops the page getting a sideways scrollbar after the shift */
-html, body {
-  overflow-x: clip;
-}
-
-/* 2: "(in small print)" one step larger */
-h1 + * {
-  scale: 1.06;
-  transform-origin: left center;
-}
-
-/* 3: more space between "(in small print)" and "Hi, I'm Juhi", which moves the intro down */
-h1 + * + * {
-  margin-top: 3.5rem !important;
-}
-
-/* 1: remove the plus mark at the top left (keeps the vertical line) */
-[class*="cross" i]:first-of-type,
-[class*="plus" i]:first-of-type {
-  display: none !important;
-}
-
-/* phones and narrow windows: no sideways shift */
-@media (max-width: 800px) {
-  *:has(> img[src$="photo.png"]) {
-    translate: 0 0;
-  }
 }
