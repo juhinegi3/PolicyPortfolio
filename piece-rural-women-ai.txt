@@ -1,0 +1,89 @@
+title: What Will It Take for Rural Women in India to Use AI with Confidence?
+date: 2025-12
+summary: Teaching AI to rural women depends on time, confidence and room to make mistakes, as much as access to a phone.
+standfirst: India's efforts to expand AI literacy among rural women must account for a less visible barrier to adoption: the time, confidence and freedom required to learn an unfamiliar technology.
+---
+
+For someone accustomed to using artificial intelligence, asking a chatbot a question takes seconds. The answer may be useful, inaccurate or utterly absurd. Either way, there is little hesitation in trying again. But consider someone for whom a smartphone is a shared household possession, mobile data is carefully rationed and an unfamiliar application carries the possibility of making an expensive mistake. The decision to experiment becomes considerably more complicated.
+
+As India looks to bring artificial intelligence into its rural livelihoods programmes, much of the conversation around digital inclusion continues to focus on connectivity, affordability and technical skills. These are necessary investments. Yet access to a smartphone tells us little about whether someone feels comfortable using it independently, particularly when learning requires repeated experimentation.
+
+This question informed our work at the Centre for Social and Behaviour Change (CSBC), Ashoka University, where we designed AI Saheli, an approximately twelve-hour AI-literacy curriculum intended for 170,000 women leaders from self-help groups (SHGs) in Uttar Pradesh. Through stakeholder consultations and behavioural research, we examined what might prevent women from adopting AI tools and how the learning experience itself could address those barriers.
+
+One consideration became particularly important: learning AI requires the freedom to make mistakes. For women whose time and access to technology are already constrained, that freedom cannot be taken for granted.
+
+## India's ambitions for rural women's enterprise
+
+India has invested considerably in rural women's economic participation through the [Deendayal Antyodaya Yojana-National Rural Livelihoods Mission (DAY-NRLM)](https://myscheme.gov.in/schemes/day-nrlm). Self-help groups have become an important platform through which women access credit, develop enterprises and participate in local economic activity. The government's Lakhpati Didi initiative builds on this infrastructure, with an expanded target of six crore women by March 2029.
+
+AI presents another opportunity. A woman running a small food-processing enterprise could use a voice assistant to draft a message to a buyer, translate a bank document or explore packaging designs for her products. These applications are increasingly accessible through ordinary smartphones.
+
+But the availability of these tools does not mean women will necessarily use them. A woman may understand how AI could help her business and still hesitate to open an unfamiliar application.
+
+India's digital-skilling programmes need to pay closer attention to that hesitation.
+
+## The barriers beyond access
+
+[The GSMA's Mobile Gender Gap Report 2025](https://www.gsma.com/wp-content/uploads/2025/12/The-Mobile-Gender-Gap-Report-2025.pdf) found that women across low- and middle-income countries were 14 per cent less likely than men to use mobile internet. The report also identified barriers involving digital skills, affordability and the perceived relevance of mobile internet services.
+
+During AI Saheli's curriculum design, our research raised concerns that are easily overlooked in conventional technology training. A smartphone may be a valuable household possession, sometimes shared with a husband or son. Pressing the wrong button can carry an imagined risk of deleting photographs, changing settings or losing money from a linked account. Even mobile data spent experimenting with an unfamiliar application represents a cost.
+
+The way generative AI works introduces another difficulty. Most people learn to navigate phones by selecting options or tapping familiar icons. AI applications often require something more demanding: describing what they want in their own words, interpreting an unexpected answer and refining the original instruction.
+
+Women must also find time to learn.
+
+[India's Time Use Survey 2024](https://mospi.gov.in/sites/default/files/publication_reports/TUS_Factsheet_25022025.pdf) found that women participating in unpaid domestic services spent an average of 289 minutes daily on these activities, compared with 88 minutes for men. Such disparities leave women with fewer opportunities for uninterrupted practice, particularly when they also undertake paid work.
+
+Learning an unfamiliar technology is rarely efficient at first. People forget instructions, make errors and spend time exploring features that may never prove useful. A training programme that assumes participants will practise independently at home overlooks how difficult it may be to find even half an hour for such experimentation.
+
+## Why enjoyment matters in technology adoption
+
+Behavioural science offers a useful explanation for why demonstrating a technology's benefits may be insufficient to encourage its use.
+
+In 2012, Viswanath Venkatesh, James Thong and Xin Xu [extended the Unified Theory of Acceptance and Use of Technology (UTAUT2)](https://misq.org/consumer-acceptance-and-use-of-information-technology-extending-the-unified-theory-of-acceptance-and-use-of-technology.html) to include hedonic motivation, the enjoyment people derive from using technology. Their research identified enjoyment as an important influence on consumer adoption. People are more willing to engage with tools they find pleasurable to use, even before they have discovered their practical value.
+
+For someone apprehensive about using AI, this matters. Asking a chatbot to interpret a bank document carries greater perceived consequences than asking it to produce an absurd image. An imperfect picture is easy to laugh at and correct. An inaccurate financial answer is considerably more unsettling.
+
+Psychologist [Barbara Fredrickson's broaden-and-build theory](https://pubmed.ncbi.nlm.nih.gov/11315248/) provides another perspective. Positive emotions such as curiosity and enjoyment can expand the range of actions people are willing to explore. Over time, these experiences may help develop confidence and other personal resources. Applied to digital literacy, the theory suggests that enjoyable, low-pressure interactions could make unfamiliar technologies easier to approach.
+
+We drew on these ideas while designing AI Saheli, alongside the [Behavioural Insights Team's EAST framework](https://www.bi.team/publications/east-four-simple-ways-to-apply-behavioural-insights/), which encourages making behaviours Easy, Attractive, Social and Timely. Rather than treating these principles as separate lessons, we used them to shape how participants would encounter AI, practise with it and eventually connect it to their own lives.
+
+The resulting curriculum placed curiosity before immediate utility.
+
+## Designing for curiosity before utility
+
+AI Saheli comprises four modules: Curiosity, Freedom, Show and Tell, and Safety. Across sixteen hands-on activities, we sought to introduce AI gradually, beginning with experiences where making mistakes carried little consequence.
+
+The first module opens with participants sketching one another without looking at their paper. The drawings are bound to be imperfect. The exercise establishes an atmosphere where people can laugh at their mistakes before anyone is asked to use an unfamiliar application.
+
+Participants then experiment with imaginative image generation, riddles and translation exercises. One activity introduces prompting through a simple formula: Naam, Jagah, Kaam (name, place, action). A participant might ask AI to create an image of a woman eating golgappas on an aeroplane. She can then add details about the woman's clothes, surroundings or expression and see how the image changes.
+
+A task that initially seems abstract becomes something she can repeat and control. She also learns that an AI-generated response needn't be accepted as final.
+
+As the curriculum progresses, we introduce applications connected to participants' personal ambitions. A woman might visualise the shop she hopes to open, explore ideas for expanding an existing enterprise or seek help understanding an unfamiliar document. These activities begin with goals participants identify themselves, giving them greater control over what they want to learn.
+
+The curriculum also draws on the peer-learning structures already present within SHGs. Participants work together, demonstrate what they have created and are encouraged to continue sharing through WhatsApp. Seeing a fellow SHG member use a new tool may make experimentation seem more achievable than watching an instructor complete the same task.
+
+Safety is addressed explicitly in the final module. Participants examine suspicious messages, misleading images and common signs of deception, including urgency and promises of improbable rewards. They practise verifying information and questioning AI-generated answers. The intention is to build confidence without encouraging unquestioning trust in technology.
+
+These decisions reflect our understanding of the barriers to adoption. Whether they translate into sustained independent use remains to be tested.
+
+## What should change in India's AI-skilling agenda
+
+If AI literacy becomes a larger part of DAY-NRLM and Lakhpati Didi programmes, training design and evaluation will need greater attention.
+
+For a start, completion figures alone offer an incomplete picture. A participant may successfully finish a training session and still struggle to use the technology independently a month later. AI Saheli's design includes baseline and endline assessments of comfort with smartphones, awareness of AI and confidence in its use. Follow-up evaluations should go further, examining whether women return to these tools, which applications they find useful and whether they can recognise unreliable information.
+
+Programmes should also make room for practice within existing SHG meetings. Dedicated sessions for experimentation, affordable data access and opportunities to seek assistance from peers would reduce dependence on whatever time participants can find at home.
+
+There is also the question of household access. When women share devices or have limited control over when they can use them, training alone cannot resolve the problem. Efforts to improve independent access and engage households around women's use of technology deserve consideration alongside curriculum development.
+
+Finally, the existing network of SHG leaders and community resource persons offers an opportunity for sustained learning. AI Saheli's proposed trainer-development model builds on this structure, using facilitator guidance and peer activities to support delivery. But scaling through community networks will require attention to training quality, particularly when participants begin using AI for consequential decisions.
+
+## An approach that deserves testing
+
+Whether a curriculum that begins with sketches, riddles and playful images can build lasting confidence is an empirical question. Our work on AI Saheli developed the behavioural rationale and translated it into a training design. Its effects on participants would need to be established through implementation and subsequent evaluation.
+
+India's ambitions for women's economic participation increasingly involve digital technologies. But using AI independently requires more than understanding its benefits. Women need opportunities to practise, recover from mistakes and decide for themselves which applications are worth pursuing.
+
+For someone with limited time and little experience of new technology, even a few minutes of experimentation can require considerable effort. Whether India's digital-skilling programmes make room for those minutes may determine how much women are ultimately able to gain from the tools being introduced into their lives.

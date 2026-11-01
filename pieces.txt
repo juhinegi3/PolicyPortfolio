@@ -1,0 +1,4 @@
+# One piece per line. Write the file name without .txt
+# Order does not matter. The page sorts by date, newest first.
+piece-rural-women-ai
+piece-subject-choice
