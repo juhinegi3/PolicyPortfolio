@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The dashboard | Beyond Healthcare Access | Juhi</title>
+  <meta name="description" content="The original Power BI dashboard and an interactive version comparing NFHS-5 and NFHS-6 across 68 districts in Bihar and Odisha.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="page.css">
+  <link rel="stylesheet" href="analyses.css">
+  <link rel="stylesheet" href="dashboards.css">
+</head>
+<body data-view="dashboard">
+  <div class="page">
+    <div class="disc" aria-hidden="true"></div>
+    <i class="mark a" aria-hidden="true"></i>
+    <nav class="topnav" aria-label="Primary">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+    </nav>
+    <article class="an dash">
+      <header class="an-head">
+        <p class="kicker">Dashboard project, part 2</p>
+        <h1>Beyond Healthcare Access</h1>
+        <p class="standfirst">Are improvements in healthcare access translating into better care and nutrition? NFHS-5 (2019–21) vs NFHS-6 (2023–24), Bihar and Odisha, 68 districts.</p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#original">The original</a>
+          <a href="#interactive">Interactive version</a>
+          <a href="#findings">Key findings</a>
+        </nav>
+      </header>
+      <section class="sec">
+        <div class="prose lede">
+          <p>I built this dashboard in Power BI. Publishing a Power BI report online needs a work or school account, which I do not have, so I cannot embed the original here. Instead, the original is shown below, and I have rebuilt it as an interactive version so that you can explore the same data.</p>
+        </div>
+
+        <h3 class="sub" id="original">The original, built in Power BI</h3>
+        <figure class="shot">
+          <a href="dashboard-original.png" target="_blank" rel="noopener" aria-label="Open the original Power BI dashboard at full size">
+            <img src="dashboard-original.png" alt="The Power BI dashboard Beyond Healthcare Access, showing NFHS-5 and NFHS-6 district averages, the top 10 districts by improvement, a district table and three key findings" width="1450" height="688">
+          </a>
+          <figcaption>The dashboard as built in Power BI Desktop. Select the image to open it at full size.</figcaption>
+        </figure>
+        <p class="panel-links">
+          <a class="btn" href="nfhs-dashboard.pbix" download>Download the Power BI file (.pbix)</a>
+          <a class="btn" href="nfhs-cleaned-data.xlsx" download>Download the cleaned data (.xlsx)</a>
+        </p>
+
+        <details class="panel">
+          <summary><span class="panel-title">How the data was prepared</span><span class="panel-hint">Power Query</span></summary>
+          <div class="panel-body">
+            <ol class="plain steps">
+              <li>Took the district values for Bihar and Odisha from the NFHS-5 and NFHS-6 fact sheets and combined the two states into one table of 1,088 rows (68 districts and 16 indicators).</li>
+              <li>Built a small indicator table giving each indicator a number, a theme (Agency, Contact, Content or Outcome) and whether a higher or a lower value is better.</li>
+              <li>Built a district table with one row per district, and marked 23 districts as aspirational.</li>
+              <li>Worked out the change between the two surveys, and an improvement figure in which the sign is flipped for indicators where a lower value is better, such as stunting.</li>
+            </ol>
+          </div>
+        </details>
+
+        <h3 class="sub" id="interactive">The interactive version</h3>
+        <p class="note">Use the filters to look at one state or one indicator. The charts, table and key findings below respond to them.</p>
+        <div class="controls">
+          <label class="ctl"><span class="ctl-l">State</span>
+            <select id="f-state"><option value="All">All</option><option>Bihar</option><option>Odisha</option></select>
+          </label>
+          <label class="ctl"><span class="ctl-l">Indicator</span>
+            <select id="f-ind"></select>
+          </label>
+        </div>
+        <p class="dir" id="dir"></p>
+
+        <div class="grid2">
+          <figure class="chart wide">
+            <figcaption>NFHS-5 vs NFHS-6, district averages</figcaption>
+            <div class="legend"><span><i class="sw then"></i>NFHS-5</span><span><i class="sw now"></i>NFHS-6</span></div>
+            <div class="chart-area" id="c-avg"></div>
+          </figure>
+          <figure class="chart wide">
+            <figcaption>Top 10 districts by improvement</figcaption>
+            <p class="chart-sub">Percentage points</p>
+            <div class="chart-area" id="c-top"></div>
+          </figure>
+        </div>
+
+        <div class="table-block">
+          <h3 class="tbl-title" id="tbl-title">District figures</h3>
+          <div class="table-wrap tall" id="tbl-wrap" tabindex="0" aria-label="District figures"></div>
+          <p class="source">Source: NFHS-5 (2019–21) and NFHS-6 (2023–24) district fact sheets. Improvement is the change in points, with the sign flipped for indicators where a lower value is better. The figure in the total row is the simple average of the districts shown.</p>
+        </div>
+
+        <h3 class="kf-title" id="findings">Key findings</h3>
+        <div class="kf">
+          <div class="kf-item">
+            <p class="kf-h"><b>Bihar:</b> Antenatal attendance outpaces supplementation</p>
+            <p class="kf-n" id="kf1">11.6 vs 3.0</p>
+            <p class="kf-d">Percentage-point gains in ANC visits and long-duration IFA consumption</p>
+          </div>
+          <div class="kf-item">
+            <p class="kf-h"><b>Bihar:</b> Early breastfeeding gains are not sustained in diets</p>
+            <p class="kf-n" id="kf2">+1.6 pp</p>
+            <p class="kf-d">Average improvement in adequate diets for children aged 6–23 months</p>
+          </div>
+          <div class="kf-item">
+            <p class="kf-h"><b>Odisha:</b> Falling stunting masks rising wasting</p>
+            <p class="kf-n" id="kf3">18 of 30</p>
+            <p class="kf-d">Districts where stunting fell while wasting increased</p>
+          </div>
+        </div>
+        <p class="more"><a class="textlink" href="dashboard-policy.html">Read the policy analysis →</a></p>
+      </section>
+      <p class="back-row pager"><a class="back" href="dashboard-intro.html">← Why and how I built it</a><a class="back" href="dashboard-policy.html">Policy analysis →</a></p>
+    </article>
+  </div>
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <script src="dashboards.js"></script>
+</body>
+</html>
