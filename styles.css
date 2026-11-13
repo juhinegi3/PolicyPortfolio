@@ -7,7 +7,7 @@
   --ink: #161616;
   --sage: #cdd7ce;
   --blush: #e6c1ca;
-  --display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --display: "Source Serif 4", "Newsreader", "Iowan Old Style", Georgia, serif;
   --text: "Newsreader", "Iowan Old Style", Georgia, serif;
 }
 
@@ -72,10 +72,10 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 .rail { --x: 57; --y: 237; width: 1px; height: calc(656 / 992 * 100%); background: var(--ink); }
 
 /* Headline and intro */
-.headline { z-index: 3; --x: 100; --y: 218; --fs: 172; margin: 0; font-family: var(--display); font-style: normal; font-weight: 400; line-height: 0.8; letter-spacing: -0.015em; }
+.headline { z-index: 3; --x: 100; --y: 218; --fs: 160; margin: 0; font-family: var(--display); font-style: normal; font-weight: 400; line-height: 0.84; letter-spacing: -0.032em; }
 .headline span { display: block; }
 .headline span + span { margin-top: -0.02em; }
-.aside { --x: 107; --y: 532; --fs: 41; margin: 0; font-family: var(--display); font-style: normal; line-height: 1.2; letter-spacing: 0.02em; }
+.aside { --x: 107; --y: 532; --fs: 41; margin: 0; font-family: var(--display); font-style: normal; line-height: 1.2; letter-spacing: -0.005em; }
 .intro { --x: 105; --y: 652; --fs: 24.5; width: calc(640 / 1586 * 100%); margin: 0; line-height: 1.28; letter-spacing: 0.035em; }
 
 /* The three section links */
@@ -137,7 +137,7 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
   .stage > .plus, .stage > .idx, .stage > .rail { display: none; }
   .u { font-size: var(--m, 18px); }
   .nav { --m: 16px; order: 1; align-self: flex-end; }
-  .headline { --m: clamp(56px, 17vw, 110px); order: 2; margin-top: 36px; }
+  .headline { --m: clamp(56px, 19vw, 110px); order: 2; margin-top: 36px; }
   .aside { --m: 29px; order: 3; margin-top: 20px; }
   .intro { --m: 18px; order: 4; width: auto; max-width: 34ch; margin-top: 22px; line-height: 1.4; }
   .collage { translate: none; order: 5; position: relative; width: 100%; margin-top: 28px; left: auto; top: auto; }
@@ -149,18 +149,4 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 
 @media (prefers-reduced-motion: reduce) {
   .paths a .arrow { transition: none; }
-}
-
-/* Site-wide editorial heading typography.
-   Analyses loads its own stylesheet after this shared file, so the important
-   declaration is intentional: it replaces the old italic display headings
-   without changing italic prose, standfirsts, or numeric table values. */
-.an-head h1,
-.an .sec-title,
-.an .panel-title,
-.an .finding h3 .num,
-.an .finding h3 .ttl,
-.an .chart figcaption {
-  font-family: var(--text) !important;
-  font-style: normal !important;
 }

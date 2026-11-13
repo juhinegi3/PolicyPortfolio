@@ -7,7 +7,7 @@
   <meta name="description" content="An analysis of PLFS data from 2017–18 to 2023–24, examining the rise in rural women's employment, changing patterns of work and what headline figures leave out.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="page.css">
   <link rel="stylesheet" href="analyses.css">
@@ -20,9 +20,7 @@
       <a href="index.html">home</a>
       <a href="about.html">about</a>
     </nav>
-
     <article class="an">
-
       <header class="an-head">
         <p class="kicker">Analysis</p>
         <h1>India’s Rising Female Workforce: What Do the Numbers Really Tell Us?</h1>
@@ -34,23 +32,20 @@
           <a href="#sources">Sources</a>
         </nav>
       </header>
-
       <!-- ===== Introduction ===== -->
       <section id="introduction" class="sec">
         <h2 class="sec-title">Introduction</h2>
         <div class="prose">
-          <p>In 2024, the Periodic Labour Force Survey (PLFS) <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2178389&amp;reg=3&amp;lang=2" target="_blank" rel="noopener">reported that women’s labour force participation in India had risen from 23.3% in 2017–18 to 41.7% in 2023–24</a>. In just six years, the figure had nearly doubled. While this suggested a considerable increase in women’s participation in the workforce, I was curious about what the numbers looked like beyond the headline. Were more women actually working? And if so, what kind of work were they doing?</p>
-          <p>I also wanted to see where the largest increases had occurred and whether the trends differed across states. So I turned to the detailed state-level tables in the PLFS annual reports for <a href="https://dge.gov.in/dge/sites/default/files/2022-04/Annual_Report_PLFS_2017-18.pdf" target="_blank" rel="noopener">2017–18</a> and <a href="https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf" target="_blank" rel="noopener">2023–24</a>. These offered a useful basis for comparison, with 2017–18 marking the survey’s first year and 2023–24 being the last full year before changes to the survey in 2025 made direct comparisons with earlier rounds difficult.</p>
+          <p>In 2024, the Periodic Labour Force Survey (PLFS) <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2178389&amp;reg=3&amp;lang=2" target="_blank" rel="noopener">reported that women’s labour force participation in India had risen from 23.3% in 2017–18 to 41.7% in 2023–24</a>. In just six years, the figure had nearly doubled. While this suggested a considerable increase in women’s participation in the workforce, I was curious about how the nature of women’s employment had changed alongside it. Were more women actually working? And if so, what kind of work were they doing?</p>
+          <p>I also wanted to see where the largest increases had occurred and whether the trends differed across states. So, I turned to the detailed state-level tables in the PLFS annual reports for <a href="https://dge.gov.in/dge/sites/default/files/2022-04/Annual_Report_PLFS_2017-18.pdf" target="_blank" rel="noopener">2017–18</a> and <a href="https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf" target="_blank" rel="noopener">2023–24</a>. These provided a useful comparison, from the survey’s first year in 2017–18 to 2023–24 (before methodological changes in 2025 complicated comparisons with earlier rounds).</p>
         </div>
       </section>
-
       <!-- ===== Original data ===== -->
       <section id="original-data" class="sec">
         <h2 class="sec-title">Original data</h2>
         <div class="prose">
           <p>Everything in this analysis comes from two tables in the appendix of each annual report: Table 17, which gives the worker population ratio for each state, and Table 19, which gives the kinds of work people do. The cleaned workbook that the analysis is built on follows them.</p>
         </div>
-
         <details class="panel">
           <summary><span class="panel-title">Relevant pages from the 2017–18 annual report</span><span class="panel-hint">3 pages</span></summary>
           <div class="panel-body">
@@ -62,7 +57,6 @@
             <p class="panel-links"><a class="btn" href="plfs-2017-18-pages.pdf" target="_blank" rel="noopener">Open the three pages as a PDF ↗</a> <a class="textlink" href="https://dge.gov.in/dge/sites/default/files/2022-04/Annual_Report_PLFS_2017-18.pdf" target="_blank" rel="noopener">Full 2017–18 report ↗</a></p>
           </div>
         </details>
-
         <details class="panel">
           <summary><span class="panel-title">Relevant pages from the 2023–24 annual report</span><span class="panel-hint">3 pages</span></summary>
           <div class="panel-body">
@@ -74,31 +68,25 @@
             <p class="panel-links"><a class="btn" href="plfs-2023-24-pages.pdf" target="_blank" rel="noopener">Open the three pages as a PDF ↗</a> <a class="textlink" href="https://mospi.gov.in/sites/default/files/publication_reports/AnnualReport_PLFS2023-24L.pdf" target="_blank" rel="noopener">Full 2023–24 report ↗</a></p>
           </div>
         </details>
-
         <details class="panel">
           <summary><span class="panel-title">Cleaned workbook and state-by-state figures</span><span class="panel-hint">Excel</span></summary>
           <div class="panel-body">
             <p class="panel-links"><a class="btn" href="plfs-cleaned-workbook.xlsx" download="Juhi_PLFSCleaned.xlsx">Download the workbook (.xlsx)</a></p>
-
             <div class="table-wrap" id="state-table-wrap" tabindex="0" role="region" aria-label="State-by-state figures">
               <p class="loading">Loading the table from the workbook.</p>
             </div>
           </div>
         </details>
       </section>
-
       <!-- ===== Findings ===== -->
       <section id="findings" class="sec">
         <h2 class="sec-title">What the data shows</h2>
-
-
         <!-- Finding 1 -->
         <section class="finding" id="finding-1">
           <h3><span class="num">1.</span><span class="ttl">Half of the rise is unpaid family work, and almost none of it is a salaried job</span></h3>
           <div class="prose">
             <p>Between 2017–18 and 2023–24, the number of rural women in work rose by <span data-v="India.rise">22.8</span> for every 100 women. That rise came from four kinds of work:</p>
           </div>
-
           <div class="table-wrap">
             <table class="tbl" id="tbl-kinds">
               <caption class="sr">Increase in rural women in work per 100 rural women, by kind of work, 2017–18 to 2023–24</caption>
@@ -117,26 +105,22 @@
             </table>
           </div>
           <p class="source">Source: PLFS annual reports 2017–18 and 2023–24, Tables 17 and 19 (rural female); author’s calculations. Shares may not add to exactly 100 because of rounding.</p>
-
-
           <div class="prose">
             <p>So nine in ten of the women counted in this rise are self-employed, and close to half are working without pay. Only about one in ten is in paid work, and only one in twenty has a salaried job.</p>
           </div>
           <aside class="implication">
             <p class="label">Policy implication</p>
-            <p>The rise does not necessarily mean more women are earning. Most of these women already work, but earn little or nothing from it. Policy should focus on making that work pay, such as small loans to grow what women already produce or providing better access to buyers.</p>
+            <p>The increase in workforce participation does not necessarily translate into higher earnings for women. Much of this labour remains poorly remunerated or entirely unpaid. Policy must therefore look beyond increasing participation to improving the economic returns from women’s work, whether through access to credit for expanding small enterprises or stronger market linkages that enable women to secure better prices for what they produce.</p>
           </aside>
         </section>
-
         <!-- Finding 2 -->
         <section class="finding" id="finding-2">
           <h3><span class="num">2.</span><span class="ttl">Changes in employment shares can be misleading</span></h3>
           <div class="prose">
             <p>Among rural women who work, the proportion working as unpaid family helpers rose only slightly, from <span data-v="India.s17_helper">38.7</span>% to <span data-v="India.s24_helper">42.3</span>%. On that figure alone, little seems to have changed. But counted against all rural women, unpaid helpers rose from <span data-v="India.p17_helper">9.2</span> to <span data-v="India.p24_helper">19.7</span> in every 100 (their number more than doubled).</p>
-            <p>Salaried work shows the opposite. Its share of working women fell from <span data-v="India.s17_sal">10.5</span>% to <span data-v="India.s24_sal">7.8</span>%, which looks like a decline. Yet the number of salaried women rose, from <span data-v="India.p17_sal">2.5</span> to <span data-v="India.p24_sal">3.6</span> in every 100 rural women.</p>
+            <p>Salaried work shows the opposite trend. Its share of working women fell from <span data-v="India.s17_sal">10.5</span>% to <span data-v="India.s24_sal">7.8</span>%, which looks like a decline. Yet the number of salaried women rose, from <span data-v="India.p17_sal">2.5</span> to <span data-v="India.p24_sal">3.6</span> in every 100 rural women.</p>
             <p>Thus, when the whole group doubles, a share can stay flat while the numbers inside it double too.</p>
           </div>
-
           <div class="table-wrap">
             <table class="tbl" id="tbl-shares">
               <caption class="sr">Two ways of counting the same rural women, 2017–18 and 2023–24</caption>
@@ -151,19 +135,16 @@
             </table>
           </div>
           <p class="source">Source: PLFS annual reports 2017–18 and 2023–24, Tables 17 and 19 (rural female); author’s calculations.</p>
-
           <figure class="chart" id="chart-shares" aria-label="Bar chart comparing shares of working women with numbers per 100 rural women, for unpaid helpers and salaried work">
-            <figcaption>The same women, counted two ways</figcaption>
+            <figcaption>A Question of How We Count</figcaption>
             <div class="legend" aria-hidden="true"><span><i class="sw then"></i>2017–18</span><span><i class="sw now"></i>2023–24</span></div>
             <div class="chart-area"></div>
           </figure>
-
           <aside class="implication">
             <p class="label">Policy implication</p>
-            <p>Looking only at the distribution of employment among working women risks obscuring important changes in women’s participation. Reporting employment categories both as a share of workers and relative to the total female population would provide a more accurate picture.</p>
+            <p>Looking at employment categories solely as a proportion of working women can obscure broader shifts in participation. Examining these figures alongside the total female population would offer a more comprehensive account of how women’s employment is changing.</p>
           </aside>
         </section>
-
         <!-- Finding 3 -->
         <section class="finding" id="finding-3">
           <h3><span class="num">3.</span><span class="ttl">States with the lowest initial employment rates saw some of the largest increases</span></h3>
@@ -175,16 +156,14 @@
               <li><span class="lead">Jharkhand:</span> from <span data-v="Jharkhand.wpr17">15.1</span> to <span data-v="Jharkhand.wpr24">57.2</span></li>
             </ul>
           </div>
-
           <figure class="chart" id="chart-states" aria-label="Chart of rural women in work per 100 rural women in 2017–18 and 2023–24 for India, Bihar, Assam and Jharkhand">
             <figcaption>Rural women in work per 100 rural women</figcaption>
             <div class="legend" aria-hidden="true"><span><i class="sw then"></i>2017–18</span><span><i class="sw now"></i>2023–24</span></div>
             <div class="chart-area"></div>
           </figure>
           <p class="source">Source: PLFS annual reports 2017–18 and 2023–24, Table 17 (rural female). The full list of states is in the workbook above.</p>
-
           <div class="prose">
-            <p>One could wonder how much of the recorded growth reflects changes in women’s employment versus in the reporting of work. It could be that agricultural and household-enterprise work undertaken by women was more fully captured in later survey rounds. Bihar’s reading supports this argument as despite its substantial increase in female employment, regular salaried work increased by just <span data-v="Bihar.chg_sal" data-d="1">0.1</span> women per 100. Much of the growth was concentrated in self-employment, particularly unpaid family work.</p>
+            <p>One could wonder, does the recorded increase reflect more women entering the workforce, or better recognition of work they were already doing? Agricultural labour and contributions to family enterprises may have been more fully captured in later survey rounds. In Bihar, for example, despite a substantial rise in female workforce participation, regular salaried employment increased by just <span data-v="Bihar.chg_sal" data-d="1">0.1</span> women per 100. Most of the growth came from self-employment, particularly unpaid work in family enterprises. While this does not establish a change in reporting practices, it raises questions about how much of the increase represents new employment opportunities.</p>
           </div>
           <aside class="implication">
             <p class="label">Policy implication</p>
@@ -192,7 +171,6 @@
           </aside>
         </section>
       </section>
-
       <!-- ===== Sources ===== -->
       <section id="sources" class="sec">
         <h2 class="sec-title">Sources</h2>
@@ -203,10 +181,8 @@
         </ol>
         <p class="back-row"><a class="back" href="index.html">← Home</a></p>
       </section>
-
     </article>
   </div>
-
   <dialog id="lightbox" aria-label="Page from the PLFS annual report">
     <form method="dialog" class="lb-bar">
       <p id="lb-caption"></p>
@@ -215,9 +191,7 @@
     </form>
     <div class="lb-scroll"><img id="lb-img" alt=""></div>
   </dialog>
-
   <div class="tip" id="tip" role="tooltip" hidden></div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="analyses.js"></script>
 </body>
