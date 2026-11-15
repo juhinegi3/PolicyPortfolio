@@ -74,7 +74,6 @@
     s.appendChild(svg('text', { x: 250, y: 30, 'font-size': 15, fill: '#161616', 'pointer-events': 'none' }, 'Bihar'));
     s.appendChild(svg('text', { x: 20, y: 300, 'font-size': 15, fill: '#161616', 'pointer-events': 'none' }, 'Odisha'));
     box.appendChild(s);
-    $('#map-ind').textContent = name(i2);
   }
 
   /* ---------- column chart: average improvement by state ---------- */
@@ -124,7 +123,7 @@
   function drawScatter(st) {
     var box = $('#c-sc-' + st.toLowerCase()); box.textContent = '';
     var ds = districts(st), pts = ds.map(function (d) { return [imp[i1][d].imp, imp[i2][d].imp, d]; });
-    var W = Math.max(box.clientWidth, 240), H = Math.round(Math.min(W * 0.8, 340)), pl = 40, pr = 12, pt = 12, pb = 48;
+    var W = Math.max(box.clientWidth, 240), H = Math.round(Math.min(W * 0.8, 340)), pl = 50, pr = 12, pt = 12, pb = 48;
     function range(k) {
       var v = pts.map(function (p) { return p[k]; }).concat([0]);
       var lo = Math.min.apply(null, v), hi = Math.max.apply(null, v), st = niceStep((hi - lo) || 1);
@@ -142,7 +141,8 @@
       s.appendChild(svg('line', { x1: pl, x2: W - pr, y1: Y(t), y2: Y(t), stroke: t === 0 ? 'rgba(22,22,22,0.55)' : GRID }));
       s.appendChild(svg('text', { x: pl - 6, y: Y(t) + 4, 'text-anchor': 'end', 'font-size': 12, fill: INK2 }, String(r1(t))));
     }
-    s.appendChild(svg('text', { x: (pl + W - pr) / 2, y: H - 4, 'text-anchor': 'middle', 'font-size': 12.5, fill: '#161616' }, 'Improvement: ' + name(i1)));
+    s.appendChild(svg('text', { x: (pl + W - pr) / 2, y: H - 4, 'text-anchor': 'middle', 'font-size': 12.5, fill: '#161616' }, 'Indicator 1'));
+    s.appendChild(svg('text', { x: 11, y: (pt + H - pb) / 2, 'text-anchor': 'middle', 'font-size': 12.5, fill: '#161616', transform: 'rotate(-90 11 ' + (pt + H - pb) / 2 + ')' }, 'Indicator 2'));
     var f = fit(pts);
     if (pts.length > 2) {
       s.appendChild(svg('line', { x1: X(rx.lo), y1: Y(f.a + f.b * rx.lo), x2: X(rx.hi), y2: Y(f.a + f.b * rx.hi), stroke: C1, 'stroke-width': 1.6, 'stroke-dasharray': '5 4' }));
@@ -156,7 +156,6 @@
       s.appendChild(c);
     });
     box.appendChild(s);
-    $('#r-' + st.toLowerCase()).textContent = 'Vertical axis: improvement in ' + name(i2) + '. Correlation across ' + f.n + ' districts: r = ' + f.r.toFixed(2) + '.';
   }
 
   /* ---------- table ---------- */
@@ -204,22 +203,8 @@
     wrap.appendChild(tb);
   }
 
-  /* ---------- key findings ---------- */
-  function findings() {
-    function mean(st, n, key) {
-      return avg(Object.keys(imp[n]).filter(function (d) { return imp[n][d].s === st; }).map(function (d) { return imp[n][d][key || 'chg']; }));
-    }
-    $('#kf1').textContent = f1(mean('Bihar', 30)) + ' vs ' + f1(mean('Bihar', 33));
-    $('#kf2').textContent = f1(mean('Bihar', 60)) + ' vs ' + f1(mean('Bihar', 67));
-    var od = Object.keys(imp[68]).filter(function (d) { return imp[68][d].s === 'Odisha'; });
-    var fell = od.filter(function (d) { return imp[68][d].chg < 0; });
-    var both = fell.filter(function (d) { return imp[69][d].chg > 0; });
-    $('#kf3').textContent = both.length + ' of ' + fell.length;
-  }
-
   function draw() {
-    var r = function (n) { return byNum[n].better === 'Lower' ? 'lower is better' : 'higher is better'; };
-    $('#dir').textContent = 'Indicator 1: ' + name(i1) + ' (' + r(i1) + '). Indicator 2: ' + name(i2) + ' (' + r(i2) + '). In every chart, a positive improvement means progress.';
+    $('#dir').textContent = 'A positive improvement always means progress, including for indicators where a lower value is better, such as stunting.';
     drawMap(); drawCols(); drawScatter('Bihar'); drawScatter('Odisha'); drawTable();
   }
 
@@ -234,7 +219,7 @@
     });
     $('#f-state').addEventListener('change', function (e) { state = e.target.value; draw(); });
     var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { drawCols(); drawScatter('Bihar'); drawScatter('Odisha'); }, 120); });
-    findings(); draw();
+    draw();
   }
 
   fetch('nfhs-data.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })

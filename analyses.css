@@ -174,3 +174,6 @@ th[aria-sort="descending"] .sort::after { content: " \2193"; }
   .disc, .mark, .topnav, .jump, .tools { display: none; }
   details:not([open]) > *:not(summary) { display: block; }
 }
+
+/* No rule under the page heading */
+.an-head + .sec { border-top: 0; padding-top: 0; }

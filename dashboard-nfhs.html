@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>The dashboard | Beyond Healthcare Access | Juhi</title>
+  <title>The dashboard | NFHS District Health Dashboard: Bihar and Odisha | Juhi</title>
   <meta name="description" content="The final Power BI dashboard comparing NFHS-5 and NFHS-6 across 68 districts in Bihar and Odisha, an interactive version and an earlier work-in-progress version.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,37 +23,32 @@
     </nav>
     <article class="an dash">
       <header class="an-head">
-        <p class="kicker">Dashboard project, part 2</p>
+        <p class="kicker">NFHS District Health Dashboard: Bihar and Odisha, part 2</p>
         <h1>The dashboard</h1>
         <p class="standfirst">Are improvements in healthcare access translating into better care and nutrition? NFHS-5 (2019–21) vs NFHS-6 (2023–24), Bihar and Odisha, 68 districts.</p>
-        <nav class="jump" aria-label="On this page">
-          <a href="#final">The final dashboard</a>
-          <a href="#interactive">Interactive version</a>
-          <a href="#findings">Key findings</a>
-          <a href="#wip">Work in progress</a>
-        </nav>
       </header>
       <section class="sec">
-        <div class="prose lede">
-          <p>I built this dashboard in Power BI. Publishing a Power BI report online needs a work or school account, which I do not have, so I cannot embed it here. The final dashboard is shown below, followed by an interactive version that I rebuilt so that you can explore the same data. An earlier version, made while the work was in progress, is at the end of the page.</p>
-        </div>
-
-        <h2 class="sub" id="final">The final dashboard, built in Power BI</h2>
+        <h2 class="sub">Final dashboard</h2>
         <figure class="shot">
-          <a href="dashboard-final.png" target="_blank" rel="noopener" aria-label="Open the final Power BI dashboard at full size">
-            <img src="dashboard-final.png" alt="The final Power BI dashboard, Access and Outcomes: Women's and Children's Health in Bihar and Odisha, with a district map, a state comparison chart, a district table and two scatter plots" onerror="this.closest('figure').classList.add('missing')">
+          <a href="dashboard-final.png" target="_blank" rel="noopener" aria-label="Open the final dashboard at full size">
+            <img src="dashboard-final.png" alt="The final Power BI dashboard, Access and Outcomes: Women’s and Children’s Health in Bihar and Odisha, with a district map, a chart of movement per state, a ranked district table and scatter plots for Bihar and Odisha" width="1210" height="670">
           </a>
-          <p class="shot-missing">Screenshot to be added</p>
           <figcaption><i>Access and Outcomes: Women’s and Children’s Health in Bihar and Odisha.</i> The final dashboard as built in Power BI Desktop. Select the image to open it at full size.</figcaption>
         </figure>
         <p class="panel-links">
-          <a class="btn" href="nfhs-dashboard.pbix" download>Download the Power BI file (.pbix)</a>
+          <a class="btn" href="nfhs-dashboard.pbix" download>Download the final dashboard (.pbix)</a>
           <a class="btn" href="nfhs-cleaned-data.xlsx" download>Download the cleaned data (.xlsx)</a>
         </p>
-        <p class="more"><a class="textlink" href="dashboard-intro.html#process">How the data was prepared is set out in Part 1 →</a></p>
 
-        <h2 class="sub" id="interactive">The interactive version</h2>
-        <p class="note">Choose two indicators to compare how each district changed between the two surveys. The map is coloured by the second indicator, and the scatter plots test whether the two indicators moved together.</p>
+        <figure class="shot older">
+          <a href="dashboard-original.png" target="_blank" rel="noopener" aria-label="Open the earlier version of the dashboard at full size">
+            <img src="dashboard-original.png" alt="An earlier, pink version of the dashboard, with state and indicator filters, district averages, the top 10 districts by improvement, a district table and key findings" width="1183" height="655">
+          </a>
+          <figcaption>An earlier version, made while I was still playing with colours. Pink did not make the final cut.</figcaption>
+        </figure>
+
+        <h2 class="sub" id="interactive">Interactive version</h2>
+        <p class="note">The final dashboard (downloadable above) has been recreated here using Claude Code, so that you can explore it without Power BI. Choose a state and two indicators to compare how each district changed between the two surveys.</p>
         <div class="controls c3">
           <label class="ctl"><span class="ctl-l">State</span>
             <select id="f-state"><option value="All">All</option><option>Bihar</option><option>Odisha</option></select>
@@ -69,69 +64,41 @@
 
         <div class="dgrid">
           <figure class="chart map">
-            <figcaption>Improvement by district</figcaption>
-            <p class="chart-sub" id="map-ind"></p>
-            <div class="legend"><span><i class="sw" style="background:#3a688e"></i>Improved</span><span><i class="sw" style="background:#e9e6df;outline:1px solid rgba(22,22,22,.3)"></i>Little change</span><span><i class="sw" style="background:#b25440"></i>Worsened</span></div>
+            <figcaption>Improvement in Indicator 2 (by district)</figcaption>
+            <p class="chart-sub">Change in percentage points, NFHS-5 to NFHS-6</p>
+            <div class="legend"><span><i class="sw" style="background:#b25440"></i>Worsened</span><span><i class="sw" style="background:#e9e6df;outline:1px solid rgba(22,22,22,.3)"></i>No change</span><span><i class="sw" style="background:#3a688e"></i>Improved</span></div>
             <div class="chart-area" id="c-map"></div>
             <p class="chart-sub">Hover over or tap a district for its value.</p>
           </figure>
           <div class="dcol">
             <figure class="chart">
-              <figcaption>Average improvement by state</figcaption>
+              <figcaption>Movement per state</figcaption>
+              <p class="chart-sub">Average district improvement, percentage points</p>
               <div class="legend"><span><i class="sw then"></i>Indicator 1</span><span><i class="sw now"></i>Indicator 2</span></div>
               <div class="chart-area" id="c-cols"></div>
             </figure>
             <div class="table-block">
-              <h3 class="tbl-title">Improvement by district</h3>
-              <div class="table-wrap tall" id="tbl-wrap" tabindex="0" aria-label="Improvement by district"></div>
+              <h3 class="tbl-title">Districts ranked by Indicator 2</h3>
+              <div class="table-wrap tall" id="tbl-wrap" tabindex="0" aria-label="Districts ranked by Indicator 2"></div>
             </div>
           </div>
         </div>
 
         <div class="grid2">
           <figure class="chart">
-            <figcaption>Bihar: do the two indicators move together?</figcaption>
+            <figcaption>Bihar</figcaption>
+            <p class="chart-sub">Each dot is a district. Right means Indicator 1 improved more; up means Indicator 2 improved more.</p>
             <div class="chart-area" id="c-sc-bihar"></div>
-            <p class="chart-sub" id="r-bihar"></p>
           </figure>
           <figure class="chart">
-            <figcaption>Odisha: do the two indicators move together?</figcaption>
+            <figcaption>Odisha</figcaption>
+            <p class="chart-sub">Each dot is a district. Right means Indicator 1 improved more; up means Indicator 2 improved more.</p>
             <div class="chart-area" id="c-sc-odisha"></div>
-            <p class="chart-sub" id="r-odisha"></p>
           </figure>
         </div>
-        <p class="source">Source: NFHS-6 District Fact Sheet Compendium (Provisional), IIPS, which reports NFHS-5 and NFHS-6 figures for each district. Improvement is the change in percentage points between the two surveys, with the sign flipped for indicators where a lower value is better, so a positive number always means progress. Each dot in a scatter plot is one district, and the dashed line is the trend.</p>
-
-        <h2 class="kf-title" id="findings">Key findings</h2>
-        <div class="kf">
-          <div class="kf-item">
-            <p class="kf-h"><b>Bihar:</b> More check-ups have not led to more iron tablet use</p>
-            <p class="kf-n" id="kf1">11.6 vs 3.0</p>
-            <p class="kf-d">Point rise in mothers with four or more check-ups, against the rise in mothers taking iron tablets for 180 days</p>
-          </div>
-          <div class="kf-item">
-            <p class="kf-h"><b>Bihar:</b> Care has improved in the facility, but not at home</p>
-            <p class="kf-n" id="kf2">20.5 vs 1.6</p>
-            <p class="kf-d">Point rise in babies breastfed within an hour of birth, against the rise in children aged 6 to 23 months getting an adequate diet</p>
-          </div>
-          <div class="kf-item">
-            <p class="kf-h"><b>Odisha:</b> Falling stunting is hiding rising wasting</p>
-            <p class="kf-n" id="kf3">18 of 24</p>
-            <p class="kf-d">Districts where wasting rose, out of the 24 where stunting fell</p>
-          </div>
-        </div>
-        <p class="more"><a class="textlink" href="dashboard-policy.html">Read the policy analysis →</a></p>
-
-        <h2 class="sub" id="wip">Work in progress: the first version</h2>
-        <p class="note">Before the final dashboard, I built this simpler version. It looks at one indicator at a time, comparing state averages and ranking districts by how much they improved.</p>
-        <figure class="shot">
-          <a href="dashboard-original.png" target="_blank" rel="noopener" aria-label="Open the first version of the dashboard at full size">
-            <img src="dashboard-original.png" alt="The first version of the dashboard, Beyond Healthcare Access, with state and indicator filters, a chart of district averages, the top 10 districts by improvement, a district table and three key findings" width="1183" height="655">
-          </a>
-          <figcaption>The first version, made while the work was in progress. Select the image to open it at full size.</figcaption>
-        </figure>
+        <p class="source">Source: NFHS-6 District Fact Sheet Compendium (Provisional), IIPS.</p>
       </section>
-      <p class="back-row pager"><a class="back" href="dashboard-intro.html">← Why and how I built it</a><a class="back" href="dashboard-policy.html">Policy analysis →</a></p>
+      <p class="back-row pager"><a class="back" href="dashboard-intro.html">← Background</a><a class="back" href="dashboard-policy.html">Policy analysis →</a></p>
     </article>
   </div>
   <div class="tip" id="tip" role="tooltip" hidden></div>

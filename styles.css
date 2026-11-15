@@ -72,11 +72,11 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 .rail { --x: 57; --y: 237; width: 1px; height: calc(656 / 992 * 100%); background: var(--ink); }
 
 /* Headline and intro */
-.headline { z-index: 3; --x: 100; --y: 218; --fs: 160; margin: 0; font-family: var(--display); font-style: normal; font-weight: 400; line-height: 0.84; letter-spacing: -0.032em; }
+.headline { z-index: 3; --x: 100; --y: 205; --fs: 160; margin: 0; font-family: var(--display); font-style: normal; font-weight: 400; line-height: 0.84; letter-spacing: -0.032em; }
 .headline span { display: block; }
 .headline span + span { margin-top: -0.02em; }
-.aside { --x: 107; --y: 532; --fs: 41; margin: 0; font-family: var(--display); font-style: normal; line-height: 1.2; letter-spacing: -0.005em; }
-.intro { --x: 105; --y: 652; --fs: 24.5; width: calc(640 / 1586 * 100%); margin: 0; line-height: 1.28; letter-spacing: 0.035em; }
+.aside { --x: 107; --y: 508; --fs: 41; width: calc(600 / 1586 * 100%); margin: 0; font-family: var(--display); font-style: normal; line-height: 1.2; letter-spacing: -0.005em; }
+.intro { --x: 105; --y: 672; --fs: 24.5; width: calc(640 / 1586 * 100%); margin: 0; line-height: 1.28; letter-spacing: 0.035em; }
 
 /* The three section links */
 .paths { list-style: none; margin: 0; padding: 0; }
@@ -138,7 +138,7 @@ a:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
   .u { font-size: var(--m, 18px); }
   .nav { --m: 16px; order: 1; align-self: flex-end; }
   .headline { --m: clamp(56px, 19vw, 110px); order: 2; margin-top: 36px; }
-  .aside { --m: 29px; order: 3; margin-top: 20px; }
+  .aside { --m: 29px; order: 3; width: auto; margin-top: 20px; }
   .intro { --m: 18px; order: 4; width: auto; max-width: 34ch; margin-top: 22px; line-height: 1.4; }
   .collage { translate: none; order: 5; position: relative; width: 100%; margin-top: 28px; left: auto; top: auto; }
   .paths { order: 6; display: flex; flex-direction: column; gap: 22px; margin-top: 24px; }
