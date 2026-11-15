@@ -130,13 +130,12 @@
 }
 
 /* No rules under the heading or between sections on the dashboard pages */
-.dash .sec { border-top: 0; padding-top: 0; }
-.dash .an-head + .sec { margin-top: clamp(36px, 5vw, 56px); }
+.dash .sec { border-top: 0; padding-top: 0; margin-top: clamp(36px, 4vw, 48px); }
 
 /* Landing page: no rules above or between the three parts */
 .land .row, .land li:last-child .row { border-top: 0; border-bottom: 0; }
 .land { margin-top: clamp(28px, 4vw, 48px); }
-.land .row { padding-block: 26px; }
+.land .row { padding-block: 12px; row-gap: 6px; }
 
 /* Earlier pink version, shown under the final screenshot */
 .shot.older { margin-top: 40px; max-width: 46rem; }
@@ -144,5 +143,5 @@
 @media (max-width: 640px) {
   /* Phones: the part title reads as a link */
   .land .row-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-  .land .row { padding-block: 18px; }
+  .land .row { padding-block: 10px; }
 }

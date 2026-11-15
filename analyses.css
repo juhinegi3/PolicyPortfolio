@@ -25,8 +25,8 @@
 .jump a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 
 /* ---------- Sections ---------- */
-.sec { margin-top: clamp(48px, 7vw, 84px); padding-top: 22px; border-top: 1px solid var(--ink); }
-.sec-title { margin: 0 0 26px; font-family: var(--display); font-style: normal; letter-spacing: -0.02em; font-weight: 400; font-size: clamp(28px, 4vw, 40px); }
+.sec { margin-top: clamp(36px, 4vw, 48px); }
+.sec-title { margin: 0 0 18px; font-family: var(--display); font-style: normal; letter-spacing: -0.02em; font-weight: 400; font-size: clamp(28px, 4vw, 40px); }
 
 .an .prose { max-width: 42rem; font-size: 20px; line-height: 1.65; letter-spacing: 0.005em; }
 .an .prose p { margin: 0 0 1.1em; }
@@ -175,5 +175,3 @@ th[aria-sort="descending"] .sort::after { content: " \2193"; }
   details:not([open]) > *:not(summary) { display: block; }
 }
 
-/* No rule under the page heading */
-.an-head + .sec { border-top: 0; padding-top: 0; }
