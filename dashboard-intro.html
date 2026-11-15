@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Why and how I built it | Juhi</title>
-  <meta name="description" content="This page will explain why I made the dashboard, where the data comes from and how it was put together.">
+  <title>Why and how I built it | Beyond Healthcare Access | Juhi</title>
+  <meta name="description" content="Why I built the NFHS dashboard, the indicators chosen, the data source and how it was put together in Power BI.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
@@ -26,11 +26,72 @@
         <p class="kicker">Dashboard project, part 1</p>
         <h1>Why and how I built it</h1>
         <p class="standfirst">Are improvements in healthcare access translating into better care and nutrition? NFHS-5 (2019–21) vs NFHS-6 (2023–24), Bihar and Odisha, 68 districts.</p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#why">Why I built this</a>
+          <a href="#indicators">The indicators</a>
+          <a href="#source">Data source</a>
+          <a href="#process">Process and logic</a>
+        </nav>
       </header>
-      <section class="sec">
-        <div class="todo">
-          <p class="todo-tag">To be updated</p>
-          <p>This page will explain why I made the dashboard, where the data comes from and how it was put together.</p>
+      <section id="why" class="sec">
+        <h2 class="sec-title">Why I built this</h2>
+        <div class="prose">
+          <p>My interest in public health burgeoned through working on two campaigns on anaemia at the Centre for Social and Behaviour Change. While researching the #DoKiTaakat IFA-uptake campaign, I realised that getting women to engage with health services was easier than ensuring they took IFA tablets consistently, which depended on supply, reminders and support at home. The chasm between accessing health services and following through at home made me question how much health-system contact tells us about the care women actually receive.</p>
+          <p>To see whether this gap held beyond one campaign, I turned to the National Family Health Survey (NFHS), the most detailed public source on this in India, and compared its two most recent rounds, NFHS-5 (2019–21) and NFHS-6 (2023–24).</p>
+          <p>I began with Bihar, where the CSBC campaigns had run, and with the first district listed, Araria. Between the two surveys, mothers with at least four antenatal visits rose from 25.8% to 32.7%, and full vaccination from 61.6% to 75.7%. Yet mothers who took iron-folic acid for 180 days fell from 7.6% to 5.4%, and children aged 6 to 23 months getting an adequate diet barely moved, from 12.8% to 13.6%. More contact had not translated into better practice at home.</p>
+          <p>So, was Araria an exception? Beyond Araria, does contact with the health system reliably indicate better maternal and child care, or can it overstate progress?</p>
+        </div>
+      </section>
+      <section id="indicators" class="sec">
+        <h2 class="sec-title">The indicators</h2>
+        <div class="prose">
+          <p>I narrowed the 93 indicators in the fact sheets to 16. Some measure access to care, such as antenatal visits, facility births and vaccination. Others measure what happens at home, from taking iron-folic acid to feeding young children well. Three indicators track children’s nutrition: stunting, wasting and underweight. Since what a woman can act on also depends on her own circumstances, I added schooling, age at marriage, and access to a bank account and phone. The dashboard tests the question across all 68 districts of Bihar and Odisha.</p>
+        </div>
+      </section>
+      <section id="source" class="sec">
+        <h2 class="sec-title">Data source</h2>
+        <div class="prose">
+          <p>NFHS-6 District Fact Sheet Compendium (Provisional), International Institute for Population Sciences (IIPS). Each district page reports both NFHS-6 and NFHS-5 figures, allowing for a direct comparison.</p>
+          <p>District figures are totals since NFHS-6 does not report separate rural and urban estimates.</p>
+        </div>
+      </section>
+      <section id="process" class="sec">
+        <h2 class="sec-title">Process &amp; Logic Used</h2>
+        <div class="prose">
+          <ol class="steps">
+            <li><span class="lead-in">Loaded the fact sheets into Power Query.</span> The NFHS-6 district fact sheet PDFs for Bihar and Odisha were imported directly into Power Query, which read each page as a table.</li>
+            <li><span class="lead-in">Assigned each row to its district.</span> Each district takes up three pages, and the districts appear in alphabetical order. Pages 1 to 3 therefore belong to the first district, pages 4 to 6 to the second, and so on. Each page’s number was used to work out its district, and the district’s name was added to every row.</li>
+            <li><span class="lead-in">Added a State column.</span> Bihar and Odisha were cleaned separately and labelled with their state before the two were combined. This allows the dashboard to filter and compare by state.</li>
+            <li><span class="lead-in">Separated indicator numbers from their labels and kept the 16 needed.</span> Each row begins with a number followed by the indicator’s name, for example “33. Mothers who consumed iron folic acid for 180 days or more” or “68. Children under 5 years who are stunted”. The number was split into its own column, which was then filtered to keep only the 16 indicator numbers.</li>
+            <li><span class="lead-in">Combined both states into one table.</span> The Bihar and Odisha tables were appended into a single table, FactValues, which holds 1,088 rows (68 districts and 16 indicators), with the NFHS-5 and NFHS-6 values side by side.</li>
+            <li><span class="lead-in">Built two indicator dropdowns.</span> To compare two indicators for the same district, the page needs two separate choices. I made two copies of the indicator list, Indicator1 and Indicator2.</li>
+            <li><span class="lead-in">Calculated the improvement for each choice.</span> Applied the Improvement measure to Indicator 1 and 2.</li>
+            <li><span class="lead-in">Coloured the map by direction of change.</span> Districts that got worse are red, those that improved are blue, and those with little change are greyish white.</li>
+            <li><span class="lead-in">Summarised each state.</span> A column chart shows each state’s average district improvement on both indicators, and a table ranks every district by the second indicator.</li>
+            <li><span class="lead-in">Tested whether the two indicators moved together.</span> Each scatter plot shows one dot per district, placed by its improvement on both indicators, with a trend line. Bihar and Odisha have separate plots, which stay in place when the page is filtered by state.</li>
+          </ol>
+        </div>
+        <h3 class="sub">Supporting tables</h3>
+        <div class="prose">
+          <ul class="plain terms">
+            <li><span class="term">DimIndicator.</span> Lists each indicator’s number, name, and whether a higher or lower value is better.</li>
+            <li><span class="term">DimDistrict.</span> This lists each district and its state.</li>
+          </ul>
+        </div>
+        <h3 class="sub">Relationships</h3>
+        <div class="prose">
+          <ul class="plain terms">
+            <li>DimIndicator to FactValues, linked by indicator number. One to many link, once for every district.</li>
+            <li>DimDistrict to FactValues, linked by district name. One to many link, once for every indicator.</li>
+          </ul>
+        </div>
+        <h3 class="sub">Key measures</h3>
+        <div class="prose">
+          <ul class="plain terms">
+            <li><span class="term">NFHS-6 Value and NFHS-5 Value:</span> The value of the selected indicator in each survey, averaged across the districts in view.</li>
+            <li><span class="term">Change (points):</span> NFHS-6 – NFHS-5 value.</li>
+            <li><span class="term">Improvement (points):</span> The change between the two surveys, where a positive number always means progress. For indicators where lower is better, such as stunting, the sign is flipped using the BetterWhen column in DimIndicator.</li>
+          </ul>
         </div>
       </section>
       <p class="back-row pager"><a class="back" href="dashboards.html">← All parts</a><a class="back" href="dashboard-nfhs.html">The dashboard →</a></p>

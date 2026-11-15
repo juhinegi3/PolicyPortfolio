@@ -90,3 +90,41 @@
 .pager .back { margin-bottom: 0; }
 .dash .more { margin: 28px 0 0; }
 @media (max-width: 640px) { .land .row-date { grid-column: 1 / -1; } }
+
+/* ---------- Final dashboard (map, state chart, table, scatter plots) ---------- */
+.controls.c3 { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 1fr); max-width: none; }
+.dgrid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: 12px 40px; margin-top: 8px; }
+.dgrid .map .chart-area { max-width: 420px; }
+.dgrid .map path { cursor: pointer; }
+.dgrid .map path:hover, .dgrid .map path:focus { stroke: #161616; stroke-width: 1.4; outline: none; }
+.dcol { min-width: 0; }
+.dcol .table-block { margin-top: 28px; }
+.dcol .table-wrap.tall { max-height: 26rem; }
+.dcol .tbl-d { min-width: 0; }
+.tbl-d th.wrap { white-space: normal; min-width: 7rem; }
+.dash .grid2 .chart-sub { margin-top: 8px; }
+.dash .chart circle:focus { outline: none; stroke: #161616; stroke-width: 2; }
+
+/* Screenshot placeholder, shown until dashboard-final.png is uploaded */
+.shot-missing { display: none; }
+.shot.missing a { display: none; }
+.shot.missing .shot-missing { display: block; margin: 0; padding: 60px 24px; border: 1px dashed rgba(22, 22, 22, 0.55); text-align: center; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Part 1: numbered process steps and term lists */
+.dash .prose ol.steps { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 14px; }
+.dash .lead-in, .dash .term { font-style: italic; }
+.dash ul.terms li { margin-bottom: 0.6em; }
+.dash .sec .sub:first-child { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .dgrid { grid-template-columns: 1fr; }
+  .controls.c3 { grid-template-columns: 1fr 1fr; }
+  .controls.c3 .ctl:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .controls.c3 { grid-template-columns: 1fr; }
+  .tbl-d th.wrap { min-width: 0; font-size: 11px; }
+}
+@media (max-width: 640px) {
+  .tbl-d thead th.wrap { white-space: normal; min-width: 5.5rem; }
+}
