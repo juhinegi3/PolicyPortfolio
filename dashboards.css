@@ -114,6 +114,8 @@
 .dash .prose ol.steps { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 14px; }
 .dash .lead-in, .dash .term { font-style: italic; }
 .dash ul.terms li { margin-bottom: 0.6em; }
+.dash .prose ul.bullets { margin: 0; padding-left: 1.4em; list-style: disc; display: flex; flex-direction: column; gap: 10px; }
+.dash .prose ul.bullets li { padding-left: 0.2em; }
 .dash .sec .sub:first-child { margin-top: 0; }
 
 @media (max-width: 900px) {
